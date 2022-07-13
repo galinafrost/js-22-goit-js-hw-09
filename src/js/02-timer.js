@@ -34,7 +34,8 @@ flatpickr(inputEl, options)
 const onStartBtnElClick = () => {
     intervalId = setInterval(() => {
     const now = Date.now();
-    const diff = selectedDate - Number(now);
+      const diff = selectedDate - Number(now);
+      buttonEl.setAttribute('disabled', 'disabled');
   
     if (diff <= 0) {
       stop();
@@ -66,6 +67,7 @@ function pad(value) {
 
 function stopTimer() {
   clearInterval(intervalId);
+  buttonEl.removeAttribute('disabled');
 }
 
 buttonEl.addEventListener('click', onStartBtnElClick)
